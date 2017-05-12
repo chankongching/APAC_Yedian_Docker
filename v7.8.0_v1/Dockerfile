@@ -8,6 +8,7 @@ RUN /bin/bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION8 && nvm in
 ENV NODE_PATH $NVM_DIR/versions/node/$NODE_VERSION8/lib/node_modules
 ENV PATH      $NVM_DIR/versions/node/$NODE_VERSION8/bin:$PATH
 RUN mkdir -p /var/www/html
+COPY newrelic.js /var/www/newrelic.js
 COPY docker-entrypoint.sh /var/docker-entrypoint.sh
 RUN chmod a+x /var/docker-entrypoint.sh
 
