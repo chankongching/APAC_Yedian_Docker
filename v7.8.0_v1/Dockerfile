@@ -9,7 +9,7 @@ ENV NODE_PATH $NVM_DIR/versions/node/$NODE_VERSION8/lib/node_modules
 ENV PATH      $NVM_DIR/versions/node/$NODE_VERSION8/bin:$PATH
 RUN mkdir -p /var/www/html
 COPY newrelic.js /var/www/newrelic.js
-COPY docker-entrypoint.sh /var/docker-entrypoint.sh
+COPY docker-entrypoint.sh /var/www/docker-entrypoint.sh
 RUN chmod a+x /var/docker-entrypoint.sh
 
 ENTRYPOINT ["/var/docker-entrypoint.sh", "> /dev/stdout"]
