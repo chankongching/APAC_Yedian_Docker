@@ -12,4 +12,4 @@ COPY newrelic.js /var/www/newrelic.js
 COPY docker-entrypoint.sh /var/www/docker-entrypoint.sh
 RUN chmod a+x /var/www/docker-entrypoint.sh
 
-ENTRYPOINT ["/var/docker-entrypoint.sh", "> /dev/stdout"]
+ENTRYPOINT ["/var/www/docker-entrypoint.sh", "> /dev/stdout"]
