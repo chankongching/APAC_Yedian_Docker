@@ -18,5 +18,5 @@ then
 else
 	/bin/sed -ie '/newrelic/d' $CODE_PATH/bin/www
         /bin/sed -i '1 irequire ("newrelic")' $CODE_PATH/bin/www
-        cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/npm  install  newrelic &&  /usr/local/.nvm/versions/node/v7.8.0/bin/node  bin/www
+        cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/npm  install && /usr/local/.nvm/versions/node/v7.8.0/bin/npm  install  newrelic &&  /usr/local/.nvm/versions/node/v7.8.0/bin/node  bin/www
 fi
