@@ -22,11 +22,11 @@ then
 	fi
 elif [ -e app.js ]
 then
-	/bin/sed -ie '/newrelic/d' $CODE_PATH/index.js
+	/bin/sed -ie '/newrelic/d' $CODE_PATH/app.js
 	/bin/sed -i '1 irequire("newrelic")' $CODE_PATH/app.js
 	cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/npm  install && /usr/local/.nvm/versions/node/v7.8.0/bin/npm  install  newrelic &&  /usr/local/.nvm/versions/node/v7.8.0/bin/node  $CODE_PATH/app.js
 else
-	/bin/sed -ie '/newrelic/d' $CODE_PATH/index.js
+	/bin/sed -ie '/newrelic/d' dist/index.js
 	/bin/sed -i '1 irequire("newrelic")' dist/app.js
 	cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/npm  install && /usr/local/.nvm/versions/node/v7.8.0/bin/npm  install  newrelic &&  /usr/local/.nvm/versions/node/v7.8.0/bin/node  dist/app.js
 fi
