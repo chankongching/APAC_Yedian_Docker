@@ -12,9 +12,17 @@ cd $CODE_PATH
 if [ -e $CODE_PATH/server/server.js ]
 then
         #/bin/sed -i '1 irequire ("newrelic")' $CODE_PATH/server/server.js
-        cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/node  server/server.js &
-        #/bin/sed -i '1 irequire ("newrelic")' $PATH/consume/consume.js
-        cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/node  consume/consume.js
+        cd $CODE_PATH &&  /usr/local/.nvm/versions/node/v7.8.0/bin/npm  install
+        if [ $? -ne 0 ]
+        then
+                cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/node  server/server.js &
+                 #/bin/sed -i '1 irequire ("newrelic")' $PATH/consume/consume.js
+                cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/node  consume/consume.js
+        else
+                cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/node  server/server.js &
+                 #/bin/sed -i '1 irequire ("newrelic")' $PATH/consume/consume.js
+                cd $CODE_PATH && /usr/local/.nvm/versions/node/v7.8.0/bin/node  consume/consume.js
+        fi
 else
 	/bin/sed -ie '/newrelic/d' $CODE_PATH/bin/www
         /bin/sed -i '1 irequire ("newrelic")' $CODE_PATH/bin/www
