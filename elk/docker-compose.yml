@@ -15,6 +15,8 @@ services:
     hostname: logstash
     container_name: logstash
     restart: always
+    environment:
+     - LS_JAVA_OPTS=-Xmx256m -Xms256m
     ports:
       - "5000:5000"
       - "5044:5044"
@@ -28,6 +30,8 @@ services:
     image: elasticsearch
     hostname: elasticsearch
     container_name: elasticsearch
+    environment:
+     - LS_JAVA_OPTS=-Xmx256m -Xms256m
     restart: always
     ports:
      - "9200:9200"
