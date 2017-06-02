@@ -11,7 +11,8 @@ cd $CODE_PATH
 /bin/sed -i "s/license_key: .*/license_key: \"$NEWRELICKEY\",/"   $CODE_PATH/newrelic.js
 if [ -e $CODE_PATH/server/server.js ]
 then
-        #/bin/sed -i '1 irequire ("newrelic")' $CODE_PATH/server/server.js
+	/bin/sed -ie 'newrelic/d' $CODE_PATH/server/server.js
+        /bin/sed -i '1 irequire ("newrelic")' $CODE_PATH/server/server.js
         cd $CODE_PATH &&  /usr/local/.nvm/versions/node/v7.8.0/bin/npm  install
         if [ $? -ne 0 ]
         then
